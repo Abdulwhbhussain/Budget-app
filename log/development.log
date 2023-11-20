@@ -78,3 +78,329 @@ Migrating to ChangeUserIdToAuthorIdInCategories (20231120213856)
   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2127889314188895495)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (13.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:50:49.226305"], ["updated_at", "2023-11-20 21:50:49.226305"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mCategory Create (4.3ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["name", "Transport"], ["icon", "fas fa-bus"], ["created_at", "2023-11-20 21:50:49.652261"], ["updated_at", "2023-11-20 21:50:49.652261"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["name", "Entertainment"], ["icon", "fas fa-gamepad"], ["created_at", "2023-11-20 21:50:49.667141"], ["updated_at", "2023-11-20 21:50:49.667141"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDeal Create (2.7ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:50:49.719333"], ["updated_at", "2023-11-20 21:50:49.719333"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:50:49.730905"], ["updated_at", "2023-11-20 21:50:49.730905"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 1], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:50:49.739673"], ["updated_at", "2023-11-20 21:50:49.739673"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (4.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:51:39.752668"], ["updated_at", "2023-11-20 21:51:39.752668"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDeal Create (2.0ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 2], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:51:39.933026"], ["updated_at", "2023-11-20 21:51:39.933026"]]
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 2], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:51:39.948448"], ["updated_at", "2023-11-20 21:51:39.948448"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.7ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 2], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:51:39.957859"], ["updated_at", "2023-11-20 21:51:39.957859"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:52:46.898823"], ["updated_at", "2023-11-20 21:52:46.898823"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.8ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 3], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:52:47.043855"], ["updated_at", "2023-11-20 21:52:47.043855"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 3], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:52:47.063747"], ["updated_at", "2023-11-20 21:52:47.063747"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 3], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:52:47.072450"], ["updated_at", "2023-11-20 21:52:47.072450"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:53:46.205343"], ["updated_at", "2023-11-20 21:53:46.205343"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (3.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 4], ["name", "Food"], ["icon", "fas fa-utensils"], ["created_at", "2023-11-20 21:53:46.313508"], ["updated_at", "2023-11-20 21:53:46.313508"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.8ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 4], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:53:46.365456"], ["updated_at", "2023-11-20 21:53:46.365456"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 4], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:53:46.387617"], ["updated_at", "2023-11-20 21:53:46.387617"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 4], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:53:46.395668"], ["updated_at", "2023-11-20 21:53:46.395668"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (7.8ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 10], ["category_id", 3], ["created_at", "2023-11-20 21:53:46.448790"], ["updated_at", "2023-11-20 21:53:46.448790"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (2.4ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 10], ["category_id", 3], ["created_at", "2023-11-20 21:53:46.466505"], ["updated_at", "2023-11-20 21:53:46.466505"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:55:26.914337"], ["updated_at", "2023-11-20 21:55:26.914337"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Food"], ["icon", "fas fa-utensils"], ["created_at", "2023-11-20 21:55:27.012499"], ["updated_at", "2023-11-20 21:55:27.012499"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Transport"], ["icon", "fas fa-bus"], ["created_at", "2023-11-20 21:55:27.037532"], ["updated_at", "2023-11-20 21:55:27.037532"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Entertainment"], ["icon", "fas fa-gamepad"], ["created_at", "2023-11-20 21:55:27.048424"], ["updated_at", "2023-11-20 21:55:27.048424"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:55:27.086500"], ["updated_at", "2023-11-20 21:55:27.086500"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:55:27.096226"], ["updated_at", "2023-11-20 21:55:27.096226"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 5], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:55:27.104924"], ["updated_at", "2023-11-20 21:55:27.104924"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (3.5ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 13], ["category_id", 4], ["created_at", "2023-11-20 21:55:27.166046"], ["updated_at", "2023-11-20 21:55:27.166046"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (5.7ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 14], ["category_id", 5], ["created_at", "2023-11-20 21:55:27.178629"], ["updated_at", "2023-11-20 21:55:27.178629"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.3ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 15], ["category_id", 6], ["created_at", "2023-11-20 21:55:27.191006"], ["updated_at", "2023-11-20 21:55:27.191006"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (1.9ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 13], ["category_id", 4], ["created_at", "2023-11-20 21:55:27.201176"], ["updated_at", "2023-11-20 21:55:27.201176"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (7.2ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 14], ["category_id", 5], ["created_at", "2023-11-20 21:55:27.207960"], ["updated_at", "2023-11-20 21:55:27.207960"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (1.9ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 15], ["category_id", 6], ["created_at", "2023-11-20 21:55:27.219805"], ["updated_at", "2023-11-20 21:55:27.219805"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 21:58:26.736314"], ["updated_at", "2023-11-20 21:58:26.736314"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Food"], ["icon", "fas fa-utensils"], ["created_at", "2023-11-20 21:58:26.828906"], ["updated_at", "2023-11-20 21:58:26.828906"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Transport"], ["icon", "fas fa-bus"], ["created_at", "2023-11-20 21:58:26.839291"], ["updated_at", "2023-11-20 21:58:26.839291"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Entertainment"], ["icon", "fas fa-gamepad"], ["created_at", "2023-11-20 21:58:26.848393"], ["updated_at", "2023-11-20 21:58:26.848393"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 21:58:26.888189"], ["updated_at", "2023-11-20 21:58:26.888189"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 21:58:26.907311"], ["updated_at", "2023-11-20 21:58:26.907311"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 6], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 21:58:26.915326"], ["updated_at", "2023-11-20 21:58:26.915326"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (3.6ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 16], ["category_id", 7], ["created_at", "2023-11-20 21:58:26.967224"], ["updated_at", "2023-11-20 21:58:26.967224"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.1ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 17], ["category_id", 8], ["created_at", "2023-11-20 21:58:26.976107"], ["updated_at", "2023-11-20 21:58:26.976107"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.0ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 18], ["category_id", 9], ["created_at", "2023-11-20 21:58:26.983617"], ["updated_at", "2023-11-20 21:58:26.983617"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 22:01:31.378928"], ["updated_at", "2023-11-20 22:01:31.378928"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Food"], ["icon", "fas fa-utensils"], ["created_at", "2023-11-20 22:01:31.473456"], ["updated_at", "2023-11-20 22:01:31.473456"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Transport"], ["icon", "fas fa-bus"], ["created_at", "2023-11-20 22:01:31.484264"], ["updated_at", "2023-11-20 22:01:31.484264"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Entertainment"], ["icon", "fas fa-gamepad"], ["created_at", "2023-11-20 22:01:31.493961"], ["updated_at", "2023-11-20 22:01:31.493961"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.7ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 22:01:31.532912"], ["updated_at", "2023-11-20 22:01:31.532912"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 22:01:31.553065"], ["updated_at", "2023-11-20 22:01:31.553065"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 7], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 22:01:31.562041"], ["updated_at", "2023-11-20 22:01:31.562041"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (3.6ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 19], ["category_id", 10], ["created_at", "2023-11-20 22:01:31.614897"], ["updated_at", "2023-11-20 22:01:31.614897"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.5ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 20], ["category_id", 11], ["created_at", "2023-11-20 22:01:31.624017"], ["updated_at", "2023-11-20 22:01:31.624017"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.1ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 21], ["category_id", 12], ["created_at", "2023-11-20 22:01:31.631690"], ["updated_at", "2023-11-20 22:01:31.631690"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (2.2ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 19], ["category_id", 10], ["created_at", "2023-11-20 22:01:31.642290"], ["updated_at", "2023-11-20 22:01:31.642290"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (2.0ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 20], ["category_id", 11], ["created_at", "2023-11-20 22:01:31.649444"], ["updated_at", "2023-11-20 22:01:31.649444"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDeal::HABTM_Categories Create (2.1ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 21], ["category_id", 12], ["created_at", "2023-11-20 22:01:31.656496"], ["updated_at", "2023-11-20 22:01:31.656496"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (4.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "John"], ["created_at", "2023-11-20 22:04:18.174697"], ["updated_at", "2023-11-20 22:04:18.174697"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.8ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Food"], ["icon", "fas fa-utensils"], ["created_at", "2023-11-20 22:04:18.269101"], ["updated_at", "2023-11-20 22:04:18.269101"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Transport"], ["icon", "fas fa-bus"], ["created_at", "2023-11-20 22:04:18.278896"], ["updated_at", "2023-11-20 22:04:18.278896"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCategory Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Entertainment"], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Entertainment"], ["icon", "fas fa-gamepad"], ["created_at", "2023-11-20 22:04:18.288806"], ["updated_at", "2023-11-20 22:04:18.288806"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDeal Create (1.4ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Lunch"], ["amount", 10], ["created_at", "2023-11-20 22:04:18.324666"], ["updated_at", "2023-11-20 22:04:18.324666"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Bus ticket"], ["amount", 2], ["created_at", "2023-11-20 22:04:18.345940"], ["updated_at", "2023-11-20 22:04:18.345940"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDeal Create (0.6ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 8], ["name", "Cinema"], ["amount", 15], ["created_at", "2023-11-20 22:04:18.355855"], ["updated_at", "2023-11-20 22:04:18.355855"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.8ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 22], ["category_id", 13], ["created_at", "2023-11-20 22:04:18.407558"], ["updated_at", "2023-11-20 22:04:18.407558"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (3.2ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 23], ["category_id", 14], ["created_at", "2023-11-20 22:04:18.415910"], ["updated_at", "2023-11-20 22:04:18.415910"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory::HABTM_Deals Create (2.1ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 24], ["category_id", 15], ["created_at", "2023-11-20 22:04:18.423952"], ["updated_at", "2023-11-20 22:04:18.423952"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2127889314188895495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddDeviseToUsers (20231120223226)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.4ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" timestamp(6)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" timestamp(6)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" timestamp(6)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" timestamp(6)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "unconfirmed_email" character varying[0m
+  [1m[35m (65.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (56.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231120223226') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2127889314188895495)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

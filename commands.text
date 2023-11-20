@@ -18,3 +18,35 @@ rails destroy model deal_category deal:references category:references
 
 rails destroy migration CreateJoinTableDealCategory deal:references category:references
 
+rails generate migration CreateDealsCategories deal:references category:references
+
+# remove column CreatedAt from deals and categories
+
+rails generate migration RemoveCreatedAtFromDeals
+
+rails generate migration RemoveCreatedAtFromCategories
+
+# change column name from user_id to author_id in deals and categories
+
+rails generate migration ChangeUserIdToAuthorIdInDeals
+
+rails generate migration ChangeUserIdToAuthorIdInCategories
+
+# add devise to user model
+
+gem 'devise'
+
+bundle install
+
+rails generate devise:install
+
+rails generate devise User
+
+rails db:migrate
+
+rails g devise:views
+
+
+
+
+
