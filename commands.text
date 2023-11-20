@@ -46,6 +46,34 @@ rails db:migrate
 
 rails g devise:views
 
+# add rspec to rails to test models
+
+gem 'rspec-rails'
+
+bundle install
+
+rails generate rspec:install
+
+# add shoulda-matchers to rails to test models
+
+gem 'shoulda-matchers', '~> 3.1'
+
+bundle install
+
+# add factory_bot_rails to rails to test models
+
+gem 'factory_bot_rails'
+
+bundle install
+
+# add faker to rails to test models
+
+gem 'faker'
+
+bundle install
+
+
+
 
 
 
