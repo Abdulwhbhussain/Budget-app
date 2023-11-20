@@ -1,3 +1,6 @@
+# Budget-app
+The Ruby on Rails capstone project (remember what they are?) is about building a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
+
 <a name="readme-top"></a>
 
 <!--
@@ -41,7 +44,8 @@ For more information on the importance of a professional README for your reposit
 
 # 📗 Table of Contents
 
-- [� Table of Contents](#-table-of-contents)
+- [Budget-app](#budget-app)
+- [📗 Table of Contents](#-table-of-contents)
 - [📖 \[your\_project\_name\] ](#-your_project_name-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
