@@ -16,7 +16,7 @@
 
 # prepare seeds for deals_categories
 
-user1 = User.create(name: 'John')
+user1 = User.create(email: 'test@example.com', password: 'password', password_confirmation: 'password', name: 'John')
 
 category1 = Category.create(name: 'Food', icon: 'fas fa-utensils', author_id: user1.id)
 
