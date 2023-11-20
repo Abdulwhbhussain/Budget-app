@@ -1,0 +1,20 @@
+rails generate model User name:string
+
+# Budget app models
+
+rails generate model deal user:references name:string amount:integer CreatedAt:datetime
+
+rails generate model category user:references name:string icon:string CreatedAt:datetime
+
+# create a many to many relationship between deals and categories
+
+rails generate model deal_category deal:references category:references
+
+# revoke the last model generation
+
+rails destroy model deal_category deal:references category:references
+
+# create a migration for many to many relationship
+
+rails destroy migration CreateJoinTableDealCategory deal:references category:references
+
