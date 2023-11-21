@@ -913,3 +913,514 @@ Started POST "/home/new" for 127.0.0.1 at 2023-11-21 19:51:26 +0500
   
 ActionController::RoutingError (No route matches [POST] "/home/new"):
   
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:10:37 +0500
+Started GET "/home/new" for 127.0.0.1 at 2023-11-21 20:10:43 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  Rendered home/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 784)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2252)
+Completed 200 OK in 349ms (Views: 32.6ms | ActiveRecord: 26.8ms | Allocations: 16624)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/home/new"):
+  
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:10:53 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  Rendered home/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 771)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 2239)
+Completed 200 OK in 109ms (Views: 29.0ms | ActiveRecord: 37.5ms | Allocations: 14568)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:18:12 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  Rendered home/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 847)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 2310)
+Completed 200 OK in 226ms (Views: 30.6ms | ActiveRecord: 21.3ms | Allocations: 16682)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 20:18:20 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 93)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 1267)
+Completed 200 OK in 34ms (Views: 21.8ms | ActiveRecord: 0.3ms | Allocations: 3347)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 20:20:55 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1240)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1326)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 32.6ms | Allocations: 15927)
+
+
+  
+ActionView::Template::Error (undefined method `categories_path' for #<ActionView::Base:0x000000000580c0>):
+    2: 
+    3: <h1>New Category</h1>
+    4: 
+    5: <%= form_for(@category) do |f| %>
+    6:   <div>
+    7:     <%= f.label :name, 'Category Name' %>
+    8:     <%= f.text_field :name %>
+  
+app/views/categories/new.html.erb:5
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 20:21:55 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1239)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1325)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 9.6ms | Allocations: 15903)
+
+
+  
+ActionView::Template::Error (undefined method `categories_path' for #<ActionView::Base:0x0000000005cee0>):
+    2: 
+    3: <h1>New Category</h1>
+    4: 
+    5: <%= form_for(@category) do |f| %>
+    6:   <div>
+    7:     <%= f.label :name, 'Category Name' %>
+    8:     <%= f.text_field :name %>
+  
+app/views/categories/new.html.erb:5
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 20:23:22 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 679)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 2126)
+Completed 200 OK in 154ms (Views: 41.9ms | ActiveRecord: 14.3ms | Allocations: 16721)
+
+
+Started POST "/categories/create" for 127.0.0.1 at 2023-11-21 20:23:34 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/categories/create"):
+  
+Started POST "/categories/create" for 127.0.0.1 at 2023-11-21 20:26:34 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Rent", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mCategory Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Rent"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mCategory Create (6.2ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Rent"], ["icon", "https://source.unsplash.com/random"], ["created_at", "2023-11-21 15:26:40.760280"], ["updated_at", "2023-11-21 15:26:40.760280"]]
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 111ms (ActiveRecord: 24.5ms | Allocations: 19138)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:26:40 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (12.7ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (6.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 199.3ms | Allocations: 12037)
+  Rendered layout layouts/application.html.erb (Duration: 200.3ms | Allocations: 12123)
+Completed 500 Internal Server Error in 227ms (ActiveRecord: 30.7ms | Allocations: 14823)
+
+
+  
+ActionView::Template::Error (undefined method `category_path' for #<ActionView::Base:0x00000000066d28>):
+    13:     <p>Total Spent: $<%= category.deals.sum(:amount) %></p>
+    14: 
+    15:     <!-- This is a link to the category's show page -->
+    16:     <%= link_to 'View', category %>
+    17:   </div>
+    18: <% end %>
+    19: 
+  
+app/views/home/index.html.erb:16
+app/views/home/index.html.erb:7
+Started POST "/categories/create" for 127.0.0.1 at 2023-11-21 20:28:23 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Rent", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Rent"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:11:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1183)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 2625)
+Completed 200 OK in 101ms (Views: 29.1ms | ActiveRecord: 9.7ms | Allocations: 21623)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:56:43 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (2.9ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (3.0ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 97.9ms | Allocations: 10271)
+  Rendered layout layouts/application.html.erb (Duration: 99.1ms | Allocations: 10357)
+Completed 500 Internal Server Error in 316ms (ActiveRecord: 82.1ms | Allocations: 24710)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `deals_index' for #<ActionView::Base:0x00000000070b20>):
+    13:     <p>Total Spent: $<%= category.deals.sum(:amount) %></p>
+    14: 
+    15:     <!-- This is a link to the category's show page -->
+    16:     <%= link_to 'View', deals_index %>
+    17:   </div>
+    18: <% end %>
+    19: 
+  
+app/views/home/index.html.erb:16
+app/views/home/index.html.erb:7
+Started GET "/" for 127.0.0.1 at 2023-11-21 20:59:01 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 54.8ms | Allocations: 9452)
+  Rendered layout layouts/application.html.erb (Duration: 70.7ms | Allocations: 10915)
+Completed 200 OK in 174ms (Views: 68.5ms | ActiveRecord: 36.1ms | Allocations: 23214)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 20:59:25 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 673)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 1834)
+Completed 200 OK in 80ms (Views: 28.0ms | ActiveRecord: 0.4ms | Allocations: 4178)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 20:59:43 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 776)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 1930)
+Completed 200 OK in 42ms (Views: 12.6ms | ActiveRecord: 4.2ms | Allocations: 8459)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:00:31 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 2593)
+Completed 200 OK in 97ms (Views: 28.1ms | ActiveRecord: 10.0ms | Allocations: 21582)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2023-11-21 21:00:49 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 51.7ms | Allocations: 7239)
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | Allocations: 8420)
+Completed 200 OK in 80ms (Views: 56.7ms | ActiveRecord: 11.2ms | Allocations: 10680)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:00:57 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 1481)
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 3549)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:01:03 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 1914)
+Completed 200 OK in 32ms (Views: 11.2ms | ActiveRecord: 1.8ms | Allocations: 6945)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2023-11-21 21:01:24 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 2330)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 3489)
+Completed 200 OK in 32ms (Views: 23.7ms | ActiveRecord: 1.6ms | Allocations: 5521)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:01:35 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 1481)
+Completed 200 OK in 18ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 3534)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:01:48 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://sourceom/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 760)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 1914)
+Completed 200 OK in 33ms (Views: 9.7ms | ActiveRecord: 1.6ms | Allocations: 6929)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:04:01 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://sourceom/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Create (7.1ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Food"], ["icon", "https://sourceom/random"], ["created_at", "2023-11-21 16:04:01.459887"], ["updated_at", "2023-11-21 16:04:01.459887"]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/categories/new
+Completed 302 Found in 38ms (ActiveRecord: 9.9ms | Allocations: 5162)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:04:01 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 1481)
+Completed 200 OK in 21ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 3552)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2023-11-21 21:06:13 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2326)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 3493)
+Completed 200 OK in 33ms (Views: 19.8ms | ActiveRecord: 1.6ms | Allocations: 5537)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:06:18 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 1488)
+Completed 200 OK in 19ms (Views: 12.3ms | ActiveRecord: 0.2ms | Allocations: 3556)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:06:26 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Food", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Food"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Food"], ["icon", "https://source.unsplash.com/random"], ["created_at", "2023-11-21 16:06:26.301896"], ["updated_at", "2023-11-21 16:06:26.301896"]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/categories/new
+Completed 302 Found in 28ms (ActiveRecord: 2.5ms | Allocations: 4994)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:06:26 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 1481)
+Completed 200 OK in 16ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 3555)
+
+
+Started GET "/home/index" for 127.0.0.1 at 2023-11-21 21:06:55 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2)[0m  [["category_id", 19], ["category_id", 21]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 51.3ms | Allocations: 10350)
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | Allocations: 11813)
+Completed 200 OK in 123ms (Views: 63.3ms | ActiveRecord: 17.7ms | Allocations: 24117)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:07:08 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 671)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 1832)
+Completed 200 OK in 30ms (Views: 18.0ms | ActiveRecord: 0.3ms | Allocations: 4160)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-21 21:07:17 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Transport", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Transport"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Transport"], ["icon", "https://source.unsplash.com/random"], ["created_at", "2023-11-21 16:07:18.060689"], ["updated_at", "2023-11-21 16:07:18.060689"]]
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 37ms (ActiveRecord: 2.4ms | Allocations: 6771)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-21 21:07:18 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mHABTM_Deals Load (0.7ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22]]
+  ↳ app/views/home/index.html.erb:7
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/home/index.html.erb:13
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/home/index.html.erb:13
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/home/index.html.erb:13
+  Rendered home/index.html.erb within layouts/application (Duration: 23.5ms | Allocations: 4109)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 5276)
+Completed 200 OK in 40ms (Views: 30.3ms | ActiveRecord: 2.2ms | Allocations: 7287)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-21 21:07:59 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 323)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 1481)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 3548)
+
+
