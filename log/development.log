@@ -805,3 +805,111 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 22ms (Views: 13.3ms | ActiveRecord: 0.4ms | Allocations: 3205)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-21 19:39:34 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 134.1ms | Allocations: 3156)
+  Rendered layout layouts/application.html.erb (Duration: 135.3ms | Allocations: 3242)
+Completed 500 Internal Server Error in 444ms (ActiveRecord: 70.6ms | Allocations: 17633)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_category_path' for #<ActionView::Base:0x0000000002cf38>):
+    20: 
+    21: <!-- Add a New Category Button -->
+    22: 
+    23: <%= link_to "Add a New Category", new_category_path %>
+  
+app/views/home/index.html.erb:23
+Started GET "/" for 127.0.0.1 at 2023-11-21 19:40:14 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1692)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1778)
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 62.7ms | Allocations: 14109)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_home_path' for #<ActionView::Base:0x00000000031bf0>):
+    20: 
+    21: <!-- Add a New Category Button -->
+    22: 
+    23: <%= link_to "Add a New Category", new_home_path %>
+  
+app/views/home/index.html.erb:23
+Started GET "/" for 127.0.0.1 at 2023-11-21 19:41:19 +0500
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 845)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 2308)
+Completed 200 OK in 123ms (Views: 29.5ms | ActiveRecord: 12.5ms | Allocations: 14629)
+
+
+Started GET "/home/new" for 127.0.0.1 at 2023-11-21 19:44:33 +0500
+Processing by HomeController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1271)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1357)
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 12.8ms | Allocations: 17802)
+
+
+  
+ActionView::Template::Error (undefined method `categories_path' for #<ActionView::Base:0x0000000003b358>):
+    2: 
+    3: <h1>New Category</h1>
+    4: 
+    5: <%= form_for(@category) do |f| %>
+    6:   <div>
+    7:     <%= f.label :name, 'Category Name' %>
+    8:     <%= f.text_field :name %>
+  
+app/views/home/new.html.erb:5
+Started GET "/home/new" for 127.0.0.1 at 2023-11-21 19:45:36 +0500
+Processing by HomeController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1240)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1326)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 10.0ms | Allocations: 15908)
+
+
+  
+ActionView::Template::Error (undefined method `categories_path' for #<ActionView::Base:0x000000000400d8>):
+    2: 
+    3: <h1>New Category</h1>
+    4: 
+    5: <%= form_for(@category) do |f| %>
+    6:   <div>
+    7:     <%= f.label :name, 'Category Name' %>
+    8:     <%= f.text_field :name %>
+  
+app/views/home/new.html.erb:5
+Started GET "/home/new" for 127.0.0.1 at 2023-11-21 19:49:42 +0500
+Processing by HomeController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 681)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 2128)
+Completed 200 OK in 115ms (Views: 25.0ms | ActiveRecord: 11.1ms | Allocations: 16728)
+
+
+Started POST "/home/new" for 127.0.0.1 at 2023-11-21 19:51:26 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/home/new"):
+  

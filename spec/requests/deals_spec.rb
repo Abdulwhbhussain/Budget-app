@@ -1,23 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe "Transactions", type: :request do
+RSpec.describe "Deals", type: :request do
   describe "GET /index" do
     it "returns http success" do
-      get "/transactions/index"
+      get "/deals/index"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
     it "returns http success" do
-      get "/transactions/new"
+      get "/deals/new"
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /create" do
     it "returns http success" do
-      get "/transactions/create"
+      get "/deals/create"
       expect(response).to have_http_status(:success)
     end
   end

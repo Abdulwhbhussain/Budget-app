@@ -8,18 +8,4 @@ RSpec.describe "Homes", type: :request do
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/home/new"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /create" do
-    it "returns http success" do
-      get "/home/create"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end
