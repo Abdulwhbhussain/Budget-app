@@ -72,6 +72,20 @@ gem 'faker'
 
 bundle install
 
+rails generate rspec:model User
+
+rails generate rspec:model Deal
+
+rails generate rspec:model Category
+
+rails db:create RAILS_ENV=test
+
+rails db:migrate RAILS_ENV=test
+
+
+
+
+
 
 
 

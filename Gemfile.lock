@@ -86,12 +86,6 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
-    database_cleaner (2.0.2)
-      database_cleaner-active_record (>= 2, < 3)
-    database_cleaner-active_record (2.1.0)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
     date (3.3.4)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -106,11 +100,6 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
-    factory_bot (6.4.1)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.0)
-      factory_bot (~> 6.4)
-      railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -287,10 +276,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  database_cleaner
   debug
   devise
-  factory_bot_rails
   importmap-rails
   jbuilder
   pg (~> 1.1)
