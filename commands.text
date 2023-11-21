@@ -82,6 +82,10 @@ rails db:create RAILS_ENV=test
 
 rails db:migrate RAILS_ENV=test
 
+# Home page controller
+
+rails generate controller Home index new create
+
 
 
 
