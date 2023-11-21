@@ -1,0 +1,94 @@
+rails generate model User name:string
+
+# Budget app models
+
+rails generate model deal user:references name:string amount:integer CreatedAt:datetime
+
+rails generate model category user:references name:string icon:string CreatedAt:datetime
+
+# create a many to many relationship between deals and categories
+
+rails generate model deal_category deal:references category:references
+
+# revoke the last model generation
+
+rails destroy model deal_category deal:references category:references
+
+# create a migration for many to many relationship
+
+rails destroy migration CreateJoinTableDealCategory deal:references category:references
+
+rails generate migration CreateDealsCategories deal:references category:references
+
+# remove column CreatedAt from deals and categories
+
+rails generate migration RemoveCreatedAtFromDeals
+
+rails generate migration RemoveCreatedAtFromCategories
+
+# change column name from user_id to author_id in deals and categories
+
+rails generate migration ChangeUserIdToAuthorIdInDeals
+
+rails generate migration ChangeUserIdToAuthorIdInCategories
+
+# add devise to user model
+
+gem 'devise'
+
+bundle install
+
+rails generate devise:install
+
+rails generate devise User
+
+rails db:migrate
+
+rails g devise:views
+
+# add rspec to rails to test models
+
+gem 'rspec-rails'
+
+bundle install
+
+rails generate rspec:install
+
+# add shoulda-matchers to rails to test models
+
+gem 'shoulda-matchers', '~> 3.1'
+
+bundle install
+
+# add factory_bot_rails to rails to test models
+
+gem 'factory_bot_rails'
+
+bundle install
+
+# add faker to rails to test models
+
+gem 'faker'
+
+bundle install
+
+rails generate rspec:model User
+
+rails generate rspec:model Deal
+
+rails generate rspec:model Category
+
+rails db:create RAILS_ENV=test
+
+rails db:migrate RAILS_ENV=test
+
+
+
+
+
+
+
+
+
+
+
