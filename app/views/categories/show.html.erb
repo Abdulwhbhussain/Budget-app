@@ -1,5 +1,6 @@
 <!-- app/views/categories/show.html.erb -->
 
+<div class="transactions-container">
 <h1><%= @category.name %> Category</h1>
 
 <div>
@@ -17,8 +18,8 @@
 
 <% if @category.deals.any? %>
   <ul>
-    <% @category.deals.each do |deal| %>
-      <li>
+    <% @deals.each do |deal| %>
+      <li class="transaction-card">
         <strong>Deal Name:</strong> <%= deal.name %><br>
         <strong>Deal Amount:</strong> <%= deal.amount %>
       </li>
@@ -32,3 +33,4 @@
 <%= link_to 'add a new transaction', new_category_deal_path(@category) %>
 
 <%= link_to 'Back to Home', root_path %>
+</div>

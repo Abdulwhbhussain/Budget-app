@@ -3157,3 +3157,1498 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 69ms (Views: 56.8ms | ActiveRecord: 5.4ms | Allocations: 9736)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:03:06 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (4.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (4.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (3.0ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (4.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 136.6ms | Allocations: 17540)
+  Rendered layout layouts/application.html.erb (Duration: 250.1ms | Allocations: 21068)
+Completed 200 OK in 640ms (Views: 282.2ms | ActiveRecord: 51.7ms | Allocations: 35462)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 115ms (ActiveRecord: 0.4ms | Allocations: 3281)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 508)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 8.7ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 110.4ms | Allocations: 2081)
+  Rendered layout layouts/application.html.erb (Duration: 119.7ms | Allocations: 3406)
+Completed 200 OK in 182ms (Views: 171.9ms | ActiveRecord: 0.0ms | Allocations: 4741)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:23:15 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 76.4ms | Allocations: 4028)
+Completed 200 OK in 86ms (Views: 81.0ms | ActiveRecord: 0.0ms | Allocations: 4852)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:31:02 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 300.2ms | Allocations: 223)
+  Rendered devise/shared/_links.html.erb (Duration: 8.2ms | Allocations: 669)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 520.1ms | Allocations: 2586)
+  Rendered layout layouts/application.html.erb (Duration: 576.0ms | Allocations: 6112)
+Completed 200 OK in 1073ms (Views: 640.7ms | ActiveRecord: 28.0ms | Allocations: 15331)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:31:23 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 344)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1526)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 2785)
+Completed 200 OK in 60ms (Views: 55.3ms | ActiveRecord: 0.0ms | Allocations: 3987)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:31:26 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 229)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1274)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 2527)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 3311)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:31:27 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.5ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 2397)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:35:15 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 390ms (ActiveRecord: 7.9ms | Allocations: 2199)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.7ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1135)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 2354)
+Completed 200 OK in 331ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 2862)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:37:19 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 2098)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 3902)
+Completed 200 OK in 226ms (Views: 130.5ms | ActiveRecord: 70.8ms | Allocations: 10927)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:41:35 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 742.3ms | Allocations: 4113)
+Completed 200 OK in 747ms (Views: 743.9ms | ActiveRecord: 0.0ms | Allocations: 4945)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:43:28 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 4116)
+Completed 200 OK in 76ms (Views: 70.9ms | ActiveRecord: 0.0ms | Allocations: 4954)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:44:05 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 127.9ms | Allocations: 4109)
+Completed 200 OK in 133ms (Views: 129.5ms | ActiveRecord: 0.0ms | Allocations: 4941)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:44:19 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 57.1ms | Allocations: 4116)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 0.0ms | Allocations: 4936)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:06 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 136.7ms | Allocations: 4123)
+Completed 200 OK in 147ms (Views: 138.4ms | ActiveRecord: 0.0ms | Allocations: 4931)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:28 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 2451)
+Completed 200 OK in 25ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:45:40 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 579)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:40 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.7ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 2401)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 3234)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:43 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 2397)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:45:45 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 239)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 2000)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 3259)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 0.0ms | Allocations: 4401)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:49 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 2397)
+Completed 200 OK in 23ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 3223)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:45:50 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:50 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 2401)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 3231)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:53 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2397)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:45:54 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 229)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1274)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2535)
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 3306)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:18 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2397)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 3205)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:20 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 525ms (ActiveRecord: 23.4ms | Allocations: 6142)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:47:21 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (3.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (2.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (3.1ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (1.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 156.0ms | Allocations: 18062)
+  Rendered layout layouts/application.html.erb (Duration: 166.0ms | Allocations: 19454)
+Completed 200 OK in 449ms (Views: 151.7ms | ActiveRecord: 42.4ms | Allocations: 31735)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 17:47:42 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 22ms (ActiveRecord: 0.4ms | Allocations: 2316)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:47:43 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:43 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1149)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 2406)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 3224)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:19:54 +0500
+Processing by SplashController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms | Allocations: 1370)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:20:07 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.2ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 2094)
+  Rendered layout layouts/application.html.erb (Duration: 33.4ms | Allocations: 3889)
+Completed 200 OK in 409ms (Views: 152.4ms | ActiveRecord: 34.9ms | Allocations: 13114)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:21:46 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 221)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 1997)
+Completed 200 OK in 58ms (Views: 45.4ms | ActiveRecord: 0.0ms | Allocations: 4233)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:22:14 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.4ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2091)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 3423)
+Completed 200 OK in 104ms (Views: 39.4ms | ActiveRecord: 47.2ms | Allocations: 10193)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 18:22:17 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 3.0ms | Allocations: 240)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1998)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 3257)
+Completed 200 OK in 40ms (Views: 36.9ms | ActiveRecord: 0.0ms | Allocations: 4408)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:22:25 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 2397)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 3223)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:22:28 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 402ms (ActiveRecord: 7.4ms | Allocations: 3343)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:22:28 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 12ms (ActiveRecord: 0.4ms | Allocations: 1253)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:22:29 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (4.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (4.9ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (2.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (1.0ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 93.6ms | Allocations: 18012)
+  Rendered layout layouts/application.html.erb (Duration: 101.1ms | Allocations: 19331)
+Completed 200 OK in 146ms (Views: 87.5ms | ActiveRecord: 30.2ms | Allocations: 24874)
+
+
+Started GET "/categories/22" for 127.0.0.1 at 2023-11-22 18:22:56 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.4ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3)[0m  [["id", 32], ["id", 35], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1179)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 2458)
+Completed 200 OK in 66ms (Views: 18.7ms | ActiveRecord: 2.9ms | Allocations: 7144)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:23:01 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms | Allocations: 1239)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:23:01 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (0.7ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (0.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 36.5ms | Allocations: 6542)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 7825)
+Completed 200 OK in 54ms (Views: 42.7ms | ActiveRecord: 4.2ms | Allocations: 9863)
+
+
+Started GET "/categories/19" for 127.0.0.1 at 2023-11-22 18:23:07 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (0.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.4ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (1.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 850)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 2130)
+Completed 200 OK in 43ms (Views: 21.1ms | ActiveRecord: 3.3ms | Allocations: 6770)
+
+
+Started GET "/categories/19/deals/new" for 127.0.0.1 at 2023-11-22 18:23:08 +0500
+Processing by DealsController#new as HTML
+  Parameters: {"category_id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering deals/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/deals/new.html.erb:16
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/views/deals/new.html.erb:22
+  Rendered deals/new.html.erb within layouts/application (Duration: 17.5ms | Allocations: 5040)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | Allocations: 6320)
+Completed 200 OK in 99ms (Views: 34.7ms | ActiveRecord: 1.3ms | Allocations: 8915)
+
+
+Started GET "/categories/19" for 127.0.0.1 at 2023-11-22 18:23:11 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (0.7ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 850)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 2130)
+Completed 200 OK in 40ms (Views: 15.3ms | ActiveRecord: 3.1ms | Allocations: 6785)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 18:23:26 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.4ms | Allocations: 2344)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:23:27 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 1300)
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 1989)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:32:57 +0500
+Processing by Devise::SessionsController#new as HTML
+Completed 404 Not Found in 35ms (ActiveRecord: 0.0ms | Allocations: 1464)
+
+
+  
+AbstractController::ActionNotFound (The splash action could not be found for the :authenticate_user!
+callback on Devise::SessionsController, but it is listed in the controller's
+:except option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:432:in `block in inverted_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+actiontext (7.1.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 18:33:22 +0500
+Processing by Devise::RegistrationsController#new as HTML
+Completed 404 Not Found in 12ms (ActiveRecord: 0.0ms | Allocations: 1173)
+
+
+  
+AbstractController::ActionNotFound (The splash action could not be found for the :authenticate_user!
+callback on Devise::RegistrationsController, but it is listed in the controller's
+:except option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:432:in `block in inverted_lambda'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.2) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.2) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.2) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+actiontext (7.1.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:34:00 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2098)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 3900)
+Completed 200 OK in 270ms (Views: 64.7ms | ActiveRecord: 24.5ms | Allocations: 13274)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 18:34:09 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 391ms (ActiveRecord: 8.0ms | Allocations: 3372)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:34:10 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 10ms (ActiveRecord: 0.3ms | Allocations: 1366)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:34:10 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (2.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (4.9ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (6.1ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (3.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (1.0ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 85.6ms | Allocations: 17533)
+  Rendered layout layouts/application.html.erb (Duration: 92.7ms | Allocations: 18918)
+Completed 200 OK in 137ms (Views: 87.5ms | ActiveRecord: 20.2ms | Allocations: 24447)
+
+
+Started GET "/categories/21" for 127.0.0.1 at 2023-11-22 18:34:14 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4)[0m  [["id", 33], ["id", 34], ["id", 35], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1183)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 2462)
+Completed 200 OK in 48ms (Views: 19.0ms | ActiveRecord: 2.6ms | Allocations: 7219)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:34:16 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 1263)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:34:16 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (0.7ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 74.3ms | Allocations: 6542)
+  Rendered layout layouts/application.html.erb (Duration: 86.7ms | Allocations: 7825)
+Completed 200 OK in 96ms (Views: 85.4ms | ActiveRecord: 4.5ms | Allocations: 9854)
+
+
+Started GET "/categories/19" for 127.0.0.1 at 2023-11-22 18:34:23 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.5ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 850)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 2129)
+Completed 200 OK in 53ms (Views: 24.4ms | ActiveRecord: 2.2ms | Allocations: 6817)
+
+
+Started GET "/categories/19/deals/new" for 127.0.0.1 at 2023-11-22 18:34:25 +0500
+Processing by DealsController#new as HTML
+  Parameters: {"category_id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering deals/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/deals/new.html.erb:16
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/views/deals/new.html.erb:22
+  Rendered deals/new.html.erb within layouts/application (Duration: 17.0ms | Allocations: 5039)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 6319)
+Completed 200 OK in 54ms (Views: 39.1ms | ActiveRecord: 1.3ms | Allocations: 8961)
+
+
+Started GET "/categories/19" for 127.0.0.1 at 2023-11-22 18:34:27 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mHABTM_Deals Load (1.0ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38]]
+  ↳ app/controllers/categories_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 850)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 2129)
+Completed 200 OK in 56ms (Views: 25.9ms | ActiveRecord: 3.3ms | Allocations: 6775)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:34:29 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 1245)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:34:30 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 35.0ms | Allocations: 6542)
+  Rendered layout layouts/application.html.erb (Duration: 62.1ms | Allocations: 7825)
+Completed 200 OK in 76ms (Views: 61.1ms | ActiveRecord: 2.8ms | Allocations: 9845)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-22 18:34:37 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 623)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 1906)
+Completed 200 OK in 79ms (Views: 28.1ms | ActiveRecord: 0.2ms | Allocations: 4039)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:34:40 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 10ms (ActiveRecord: 0.2ms | Allocations: 1242)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 18:34:40 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (0.7ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 6542)
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | Allocations: 7825)
+Completed 200 OK in 55ms (Views: 42.3ms | ActiveRecord: 3.2ms | Allocations: 9857)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 18:34:46 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.2ms | Allocations: 2320)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 18:34:47 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 186)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 1448)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.0ms | Allocations: 2331)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:34:40 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 129.3ms | Allocations: 3651)
+Completed 200 OK in 203ms (Views: 159.7ms | ActiveRecord: 0.0ms | Allocations: 5852)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:35:36 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 2973)
+Completed 200 OK in 59ms (Views: 55.1ms | ActiveRecord: 0.0ms | Allocations: 3661)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:36:52 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 1929)
+Completed 200 OK in 69ms (Views: 53.4ms | ActiveRecord: 0.0ms | Allocations: 4151)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:37:29 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 1928)
+Completed 200 OK in 60ms (Views: 47.0ms | ActiveRecord: 0.0ms | Allocations: 4153)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-11-22 20:38:09 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/signup" for 127.0.0.1 at 2023-11-22 20:38:18 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:38:56 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 1928)
+Completed 200 OK in 74ms (Views: 50.6ms | ActiveRecord: 0.0ms | Allocations: 4129)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 20:39:13 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.2ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 51.3ms | Allocations: 2091)
+  Rendered layout layouts/application.html.erb (Duration: 61.0ms | Allocations: 3423)
+Completed 200 OK in 428ms (Views: 83.5ms | ActiveRecord: 33.3ms | Allocations: 12434)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 20:39:18 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.7ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 240)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 1998)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 3257)
+Completed 200 OK in 45ms (Views: 39.0ms | ActiveRecord: 0.0ms | Allocations: 4413)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:44:50 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 63.6ms | Allocations: 3671)
+Completed 200 OK in 112ms (Views: 94.7ms | ActiveRecord: 0.0ms | Allocations: 5887)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:45:48 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 114.7ms | Allocations: 2989)
+Completed 200 OK in 119ms (Views: 116.1ms | ActiveRecord: 0.0ms | Allocations: 3662)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:47:49 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 1928)
+Completed 200 OK in 51ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 4159)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:49:24 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 3672)
+Completed 200 OK in 79ms (Views: 66.7ms | ActiveRecord: 0.0ms | Allocations: 5885)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:49:59 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 54.1ms | Allocations: 2990)
+Completed 200 OK in 58ms (Views: 55.7ms | ActiveRecord: 0.0ms | Allocations: 3666)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:50:51 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 2998)
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.0ms | Allocations: 3680)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:51:04 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 1312)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 2012)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:51:53 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 47.0ms | Allocations: 3005)
+Completed 200 OK in 55ms (Views: 51.6ms | ActiveRecord: 0.0ms | Allocations: 3693)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:52:36 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 44.1ms | Allocations: 3013)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.0ms | Allocations: 3707)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:53:28 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 55.0ms | Allocations: 3014)
+Completed 200 OK in 60ms (Views: 57.0ms | ActiveRecord: 0.0ms | Allocations: 3693)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 20:54:14 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 58.1ms | Allocations: 3008)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 0.0ms | Allocations: 3675)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 20:54:32 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.8ms | Allocations: 219)
+  Rendered devise/shared/_links.html.erb (Duration: 9.6ms | Allocations: 669)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 43.8ms | Allocations: 2572)
+  Rendered layout layouts/application.html.erb (Duration: 77.6ms | Allocations: 3912)
+Completed 200 OK in 338ms (Views: 139.3ms | ActiveRecord: 19.6ms | Allocations: 12877)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 20:54:36 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 344)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1526)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 2791)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 3998)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 20:55:20 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.4ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 2397)
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 3210)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 21:50:34 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.6ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.0ms | Allocations: 2108)
+  Rendered layout layouts/application.html.erb (Duration: 115.7ms | Allocations: 5646)
+Completed 200 OK in 396ms (Views: 146.1ms | ActiveRecord: 42.8ms | Allocations: 14921)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 21:52:20 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 514ms (ActiveRecord: 8.6ms | Allocations: 3387)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 21:52:21 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 14ms (ActiveRecord: 0.6ms | Allocations: 1362)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 21:52:21 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (6.9ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (5.0ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (3.0ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 162.4ms | Allocations: 17531)
+  Rendered layout layouts/application.html.erb (Duration: 171.0ms | Allocations: 18916)
+Completed 200 OK in 277ms (Views: 161.7ms | ActiveRecord: 21.4ms | Allocations: 24461)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 21:56:43 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (1.1ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 98.3ms | Allocations: 18544)
+  Rendered layout layouts/application.html.erb (Duration: 156.0ms | Allocations: 22124)
+Completed 200 OK in 332ms (Views: 153.1ms | ActiveRecord: 92.5ms | Allocations: 34461)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:03:22 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (4.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (3.3ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (1.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 89.3ms | Allocations: 18082)
+  Rendered layout layouts/application.html.erb (Duration: 147.3ms | Allocations: 21687)
+Completed 200 OK in 376ms (Views: 144.8ms | ActiveRecord: 33.9ms | Allocations: 36061)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:04:12 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (0.5ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 39.0ms | Allocations: 6946)
+  Rendered layout layouts/application.html.erb (Duration: 86.5ms | Allocations: 9996)
+Completed 200 OK in 97ms (Views: 85.4ms | ActiveRecord: 4.2ms | Allocations: 12034)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-22 22:04:57 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 1927)
+Completed 200 OK in 69ms (Views: 18.9ms | ActiveRecord: 0.4ms | Allocations: 4086)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-22 22:05:16 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Investments", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mCategory Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Investments"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mCategory Create (10.3ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Investments"], ["icon", "https://source.unsplash.com/random"], ["created_at", "2023-11-22 17:05:16.889332"], ["updated_at", "2023-11-22 17:05:16.889332"]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 120ms (ActiveRecord: 17.4ms | Allocations: 6696)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:05:16 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 1365)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:05:17 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (0.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23], ["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (0.5ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 43.3ms | Allocations: 7838)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 9121)
+Completed 200 OK in 76ms (Views: 62.9ms | ActiveRecord: 4.1ms | Allocations: 11150)
+
+
+Started GET "/categories/24" for 127.0.0.1 at 2023-11-22 22:05:35 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/show.html.erb:13
+  Rendered categories/show.html.erb within layouts/application (Duration: 9.9ms | Allocations: 945)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 2225)
+Completed 200 OK in 90ms (Views: 22.9ms | ActiveRecord: 1.6ms | Allocations: 6291)
+
+
+Started GET "/categories/24" for 127.0.0.1 at 2023-11-22 22:09:18 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1063)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 4665)
+Completed 200 OK in 247ms (Views: 84.8ms | ActiveRecord: 46.8ms | Allocations: 25507)
+
+
+Started GET "/categories/23" for 127.0.0.1 at 2023-11-22 22:09:42 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mDeal Load (0.6ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3)[0m  [["id", 35], ["id", 38], ["id", 39]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:14
+  [1m[36mDeal Load (5.3ms)[0m  [1m[34mSELECT "deals".* FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1 ORDER BY "deals"."created_at" DESC[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:21
+  Rendered categories/show.html.erb within layouts/application (Duration: 18.4ms | Allocations: 1229)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 2508)
+Completed 200 OK in 64ms (Views: 25.1ms | ActiveRecord: 7.7ms | Allocations: 11775)
+
+
+Started GET "/categories/23" for 127.0.0.1 at 2023-11-22 22:11:51 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mDeal Load (1.9ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3)[0m  [["id", 35], ["id", 38], ["id", 39]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:14
+  [1m[36mDeal Load (0.9ms)[0m  [1m[34mSELECT "deals".* FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1 ORDER BY "deals"."created_at" DESC[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:21
+  Rendered categories/show.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1660)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 5278)
+Completed 200 OK in 231ms (Views: 77.7ms | ActiveRecord: 21.4ms | Allocations: 31403)
+
+
+Started GET "/categories/23" for 127.0.0.1 at 2023-11-22 22:12:27 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.5ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mDeal Load (0.4ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3)[0m  [["id", 35], ["id", 38], ["id", 39]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:14
+  [1m[36mDeal Load (1.0ms)[0m  [1m[34mSELECT "deals".* FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1 ORDER BY "deals"."created_at" DESC[0m  [["category_id", 23]]
+  ↳ app/views/categories/show.html.erb:21
+  Rendered categories/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1193)
+  Rendered layout layouts/application.html.erb (Duration: 180.6ms | Allocations: 4263)
+Completed 200 OK in 204ms (Views: 181.3ms | ActiveRecord: 3.2ms | Allocations: 9208)
+
+
