@@ -13,9 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
  /* Store the Colors in Variables used for the Theme and Branding of the whole Application */
-
  :root {
   --main-color: #3778c2;
   --main-color-light: #6fa7e1;
@@ -27,7 +25,7 @@
   --text-color-light: #808a8f;
   --text-color-dark: #2e3437;
   --background-color: #f8f9fa;
-  --background-color-light: #ffffff;
+  --background-color-light: #fff;
   --background-color-dark: #c2c2c2;
 }
 
@@ -64,6 +62,14 @@ nav {
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 #signin-up-menu {
   list-style: none;
   display: flex;
@@ -79,14 +85,6 @@ nav {
   text-decoration: none;
   color: white; /* Text color for sign-in/sign-up links */
   font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 .btn-warning {
