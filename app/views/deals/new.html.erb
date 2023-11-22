@@ -13,7 +13,7 @@
 
     <div class="checkbox">
     <%= form.label :categories %>
-    <%= form.collection_check_boxes :category_ids, current_user.categories, :id, :name, include_hidden: false %>
+    <%= form.collection_check_boxes :category_ids, current_user.categories, :id, :name, include_hidden: false, required: true %>
   </div>
 
     <%= form.submit "Add Deal", class: "btn btn-primary" %>
