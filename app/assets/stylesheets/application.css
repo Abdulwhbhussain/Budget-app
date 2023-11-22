@@ -79,6 +79,10 @@ a:hover {
   padding: 0;
 }
 
+li {
+  margin-bottom: 10px;
+}
+
 #signin-up-menu li {
   margin-right: 15px;
 }
@@ -145,7 +149,8 @@ a:hover {
 
 /* make Everything in the center in categories container */
 
-.categories-container, .transactions-container {
+.categories-container,
+.transactions-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -192,8 +197,3 @@ ul {
   margin: 0;
   padding: 0;
 }
-
-li {
-  margin-bottom: 10px;
-}
-
