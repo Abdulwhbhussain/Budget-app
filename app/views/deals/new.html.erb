@@ -10,12 +10,11 @@
       <%= form.label :amount, class: 'form-label' %>
       <%= form.number_field :amount, autofocus: true, step: '0.01', class: 'form-control', required: true %>
     </div>
-    
-    <div class="mb-3">
-      <%= form.label :category, class: 'form-label' %>
-      <%= select_tag :category, options_for_select(@categories.map { |category| [category.name, category.id] }), 
-      { prompt: 'Select Category', required: true, class: 'form-select' } %>
-    </div>
+
+    <div class="checkbox">
+    <%= form.label :categories %>
+    <%= form.collection_check_boxes :category_ids, current_user.categories, :id, :name, include_hidden: false %>
+  </div>
 
     <%= form.submit "Add Deal", class: "btn btn-primary" %>
   <% end %>

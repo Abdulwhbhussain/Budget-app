@@ -5,23 +5,24 @@ class DealsController < ApplicationController
   end
 
   def create
-    @deal = Deal.new(deal_params)
+    @deal = current_user.deals.new(deals_params.except(:category_ids))
     @deal.author = current_user
-    
-    # it contains a many to many relationship and joins table between deals and categories
-    @deal.categories = Category.where(id: params[:category])
-
+    @categories = Category.where(id: deals_params[:category_ids])
+    @categories.each do |category|
+        @deal.categories << category
+    end
     if @deal.save
-      redirect_to category_path(Category.find_by(id: params[:category]))
+        flash[:success] = "Successfully added New Expenditure."
+        redirect_to category_path(Category.find_by(id: @categories.first.id))
     else
-      render :new
+        flash.now[:error] = "Error: Failed to Add new Expenditure!"
+        render :new
     end
   end
 
   private
 
-  def deal_params
-    params.require(:deal)
-          .permit(:name, :amount)
+  def deals_params
+    params.require(:deal).permit(:name, :amount, category_ids: [])
   end
 end
