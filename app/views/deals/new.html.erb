@@ -1,27 +1,23 @@
 <!-- app/views/deals/new.html.erb -->
 
-<h1>New Deal</h1>
+<h2>Add New Deal</h2>
+  <%= form_with model: @deal, url: category_deals_path, class: 'mt-4' do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, autofocus: true, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, autofocus: true, step: '0.01', class: 'form-control', required: true %>
+    </div>
+    
+    <div class="mb-3">
+      <%= form.label :category, class: 'form-label' %>
+      <%= select_tag :category, options_for_select(@categories.map { |category| [category.name, category.id] }), 
+      { prompt: 'Select Category', required: true, class: 'form-select' } %>
+    </div>
 
-<%= form_for([@deal], url: category_deals_path) do |f| %>
-  <div>
-    <%= f.label :name, 'Deal Name' %>
-    <%= f.text_field :name %>
-  </div>
+    <%= form.submit "Add Deal", class: "btn btn-primary" %>
+  <% end %>
 
-  <div>
-    <%= f.label :amount, 'Deal Amount' %>
-    <%= f.number_field :amount %>
-  </div>
-
-  <!-- Add a select dropdown for categories -->
-  <div>
-    <%= f.label :category_ids, 'Select Categories' %>
-    <%= f.collection_select :category_ids, Category.all, :id, :name, { prompt: 'Select categories' }, multiple: true, required: true %>
-  </div>
-
-  <div>
-    <%= f.submit 'Create Deal' %>
-  </div>
-<% end %>
-
-<%= link_to 'Back to Category', category_path(@category) %>
+  <%= link_to 'Back to Category', category_path(@categories.find_by(id: params[:category_id])) %>
