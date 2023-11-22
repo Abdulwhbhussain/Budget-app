@@ -118,3 +118,34 @@ a:hover {
 body {
   overflow-x: hidden; /* This will hide the horizontal scrollbar */
 }
+
+/* Container for the Splash Screen containing the Logo and the Sign-in/Sign-up Buttons */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+/* Customize this button as per design requirements */
+
+.button-login {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--main-color); /* Background color for the sign-in/sign-up buttons */
+  border: none;
+  padding: 20px 40px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
