@@ -1,0 +1,22 @@
+<!-- app/views/deals/new.html.erb -->
+
+<h2>Add New Deal</h2>
+  <%= form_with model: @deal, url: category_deals_path, class: 'mt-4' do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, autofocus: true, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, autofocus: true, step: '0.01', class: 'form-control', required: true %>
+    </div>
+
+    <div class="checkbox">
+    <%= form.label :categories %>
+    <%= form.collection_check_boxes :category_ids, current_user.categories, :id, :name, include_hidden: false, required: true %>
+  </div>
+
+    <%= form.submit "Add Deal", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Back to Category', category_path(@categories.find_by(id: params[:category_id])) %>
