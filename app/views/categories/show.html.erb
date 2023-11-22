@@ -17,7 +17,7 @@
 
 <% if @category.deals.any? %>
   <ul>
-    <% @category.deals.each do |deal| %>
+    <% @deals.each do |deal| %>
       <li>
         <strong>Deal Name:</strong> <%= deal.name %><br>
         <strong>Deal Amount:</strong> <%= deal.amount %>

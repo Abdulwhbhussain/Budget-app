@@ -86,6 +86,22 @@ rails db:migrate RAILS_ENV=test
 
 rails generate controller Home index new create
 
+# generate devise views
+
+rails generate devise:views
+
+# transactions controller
+
+rails generate controller Deals index new create
+
+# random image
+
+https://source.unsplash.com/random
+
+# controller for categories
+
+rails generate controller Categories new create
+
 
 
 
