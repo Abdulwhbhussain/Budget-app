@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ 
  /* Store the Colors in Variables used for the Theme and Branding of the whole Application */
- :root {
+:root {
   --main-color: #3778c2;
   --main-color-light: #6fa7e1;
   --main-color-dark: #1c4d8c;
