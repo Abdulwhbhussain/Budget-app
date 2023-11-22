@@ -3157,3 +3157,336 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 69ms (Views: 56.8ms | ActiveRecord: 5.4ms | Allocations: 9736)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:03:06 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (4.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (4.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (3.0ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (4.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 136.6ms | Allocations: 17540)
+  Rendered layout layouts/application.html.erb (Duration: 250.1ms | Allocations: 21068)
+Completed 200 OK in 640ms (Views: 282.2ms | ActiveRecord: 51.7ms | Allocations: 35462)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 115ms (ActiveRecord: 0.4ms | Allocations: 3281)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.0ms | Allocations: 508)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:03:30 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 8.7ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 110.4ms | Allocations: 2081)
+  Rendered layout layouts/application.html.erb (Duration: 119.7ms | Allocations: 3406)
+Completed 200 OK in 182ms (Views: 171.9ms | ActiveRecord: 0.0ms | Allocations: 4741)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:23:15 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 76.4ms | Allocations: 4028)
+Completed 200 OK in 86ms (Views: 81.0ms | ActiveRecord: 0.0ms | Allocations: 4852)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:31:02 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 300.2ms | Allocations: 223)
+  Rendered devise/shared/_links.html.erb (Duration: 8.2ms | Allocations: 669)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 520.1ms | Allocations: 2586)
+  Rendered layout layouts/application.html.erb (Duration: 576.0ms | Allocations: 6112)
+Completed 200 OK in 1073ms (Views: 640.7ms | ActiveRecord: 28.0ms | Allocations: 15331)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:31:23 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 344)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1526)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 2785)
+Completed 200 OK in 60ms (Views: 55.3ms | ActiveRecord: 0.0ms | Allocations: 3987)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:31:26 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 3.2ms | Allocations: 229)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1274)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 2527)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 3311)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:31:27 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.5ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 2397)
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:35:15 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 390ms (ActiveRecord: 7.9ms | Allocations: 2199)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.7ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1135)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 2354)
+Completed 200 OK in 331ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 2862)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:37:19 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.4ms | Allocations: 2098)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | Allocations: 3902)
+Completed 200 OK in 226ms (Views: 130.5ms | ActiveRecord: 70.8ms | Allocations: 10927)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:41:35 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 742.3ms | Allocations: 4113)
+Completed 200 OK in 747ms (Views: 743.9ms | ActiveRecord: 0.0ms | Allocations: 4945)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:43:28 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 4116)
+Completed 200 OK in 76ms (Views: 70.9ms | ActiveRecord: 0.0ms | Allocations: 4954)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:44:05 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 127.9ms | Allocations: 4109)
+Completed 200 OK in 133ms (Views: 129.5ms | ActiveRecord: 0.0ms | Allocations: 4941)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:44:19 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.3ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 57.1ms | Allocations: 4116)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 0.0ms | Allocations: 4936)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:06 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 136.7ms | Allocations: 4123)
+Completed 200 OK in 147ms (Views: 138.4ms | ActiveRecord: 0.0ms | Allocations: 4931)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:28 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 2451)
+Completed 200 OK in 25ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:45:40 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 579)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:40 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.7ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 2401)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.0ms | Allocations: 3234)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:43 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 2397)
+Completed 200 OK in 28ms (Views: 24.2ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:45:45 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.2ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 239)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 2000)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 3259)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 0.0ms | Allocations: 4401)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:49 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.0ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 2397)
+Completed 200 OK in 23ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 3223)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:45:50 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:50 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 2401)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 3231)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:45:53 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2397)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 3217)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-11-22 17:45:54 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 229)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1274)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2535)
+Completed 200 OK in 18ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 3306)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:18 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1144)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2397)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 3205)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:20 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 525ms (ActiveRecord: 23.4ms | Allocations: 6142)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:47:21 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mHABTM_Deals Load (3.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Load (2.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:5
+  [1m[36mDeal Sum (3.1ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (1.3ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.7ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:11
+  [1m[36mDeal Sum (0.6ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:11
+  Rendered categories/index.html.erb within layouts/application (Duration: 156.0ms | Allocations: 18062)
+  Rendered layout layouts/application.html.erb (Duration: 166.0ms | Allocations: 19454)
+Completed 200 OK in 449ms (Views: 151.7ms | ActiveRecord: 42.4ms | Allocations: 31735)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 17:47:42 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 22ms (ActiveRecord: 0.4ms | Allocations: 2316)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 17:47:43 +0500
+Processing by CategoriesController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 17:47:43 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 329)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1149)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 2406)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 3224)
+
+
