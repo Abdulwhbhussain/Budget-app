@@ -100,7 +100,7 @@ The Ruby on Rails capstone project (remember what they are?) is about building a
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://google.com)
-- [Presentation Video](https://google.com)
+- [Presentation Video](https://www.loom.com/share/1a278f3b6b854132a83c7f2e8b9c303c?sid=ed37e9d1-ed0f-4a65-aae7-c4c9819d9318)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
