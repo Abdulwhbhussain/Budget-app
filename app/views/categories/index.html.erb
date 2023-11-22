@@ -1,0 +1,19 @@
+<!-- app/views/categories/index.html.erb -->
+
+<h2>Categories</h2>
+
+<% @categories.each do |category| %>
+  <div>
+  <img src="<%= category.icon %>" />
+    <h2><%= category.name %></h2>
+
+    <!-- calculate total amount spent on this category -->
+    <p>Total Spent: $<%= category.deals.sum(:amount) %></p>
+
+    <!-- This is a link to the category's show page -->
+    <%= link_to 'View', category_path(category) %>
+  </div>
+<% end %>
+
+<!-- link to categories new path -->
+<%= link_to 'add a new category', new_category_path %>
