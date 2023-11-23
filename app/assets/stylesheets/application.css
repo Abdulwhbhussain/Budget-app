@@ -210,7 +210,7 @@ ul {
   margin-bottom: 20px;
 }
 
-.category {
+#category {
   padding: 20px 15px !important;
   position:fixed;
   bottom: 0;
