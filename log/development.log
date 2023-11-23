@@ -5422,3 +5422,24 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 71ms (Views: 57.1ms | ActiveRecord: 5.6ms | Allocations: 13155)
 
 
+Started GET "/categories/26" for 127.0.0.1 at 2023-11-23 14:44:09 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (4.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (3.0ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 26]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mDeal Load (6.3ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" = $1[0m  [["id", 41]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (1.2ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 26]]
+  ↳ app/views/categories/show.html.erb:14
+  [1m[36mDeal Load (0.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1 ORDER BY "deals"."created_at" DESC[0m  [["category_id", 26]]
+  ↳ app/views/categories/show.html.erb:21
+  Rendered categories/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 1613)
+  Rendered layout layouts/application.html.erb (Duration: 58.5ms | Allocations: 5253)
+Completed 200 OK in 393ms (Views: 76.7ms | ActiveRecord: 35.7ms | Allocations: 32884)
+
+

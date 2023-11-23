@@ -30,7 +30,9 @@
 <% end %>
 
 <!-- Add a new transaction button -->
-<%= link_to 'add a new transaction', new_category_deal_path(@category) %>
+<button class="add-transaction-button">
+  <%= link_to 'Add a new deal', new_category_deal_path(@category), style: "color: white;" %>
+</button>
 
 <%= link_to 'Back to Home', root_path %>
 </div>

@@ -198,7 +198,8 @@ ul {
   padding: 0;
 }
 
-.add-category-button {
+.add-category-button,
+.add-transaction-button {
   background-color: var(--second-color); /* Background color for the add category button */
   color: white;
   border: none;
