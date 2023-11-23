@@ -210,6 +210,12 @@ ul {
   margin-bottom: 20px;
 }
 
+.category {
+  padding: 20px 15px !important;
+  position:fixed;
+  bottom: 0;
+}
+
 /* Make Everything in the center in container-login */
 
 .container-login,
