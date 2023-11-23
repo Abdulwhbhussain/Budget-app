@@ -1,0 +1,28 @@
+<!-- app/views/categories/index.html.erb -->
+
+<div class="categories-container">
+<h2>Categories</h2>
+
+<% if @categories.empty? %>
+<h3>There are no categories yet.</h3>
+<% else %>
+<% @categories.each do |category| %>
+  <div class="category-card">
+  <img src="<%= category.icon %>" />
+    <h2><%= category.name %></h2>
+
+    <!-- calculate total amount spent on this category -->
+    <p>Total Spent: $<%= category.deals.sum(:amount) %></p>
+
+    <!-- This is a link to the category's show page -->
+    <%= link_to 'View', category_path(category) %>
+  </div>
+<% end %>
+<% end %>
+
+
+<!-- link to categories new path -->
+<button class="add-category-button">
+<%= link_to 'Add a new category', new_category_path, style: "color: white;" %>
+</button>
+</div>

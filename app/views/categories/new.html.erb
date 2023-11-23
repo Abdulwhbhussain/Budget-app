@@ -1,0 +1,21 @@
+<!-- app/views/categories/new.html.erb -->
+
+<h1>New Category</h1>
+
+<%= form_for(@category) do |f| %>
+  <div>
+    <%= f.label :name, 'Category Name' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :icon, 'Category Icon' %>
+    <%= f.text_field :icon %>
+  </div>
+
+  <div>
+    <%= f.submit 'Create Category' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Home', root_path %>

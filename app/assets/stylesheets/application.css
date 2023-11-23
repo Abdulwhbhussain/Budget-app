@@ -1,0 +1,264 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Store the Colors in Variables used for the Theme and Branding of the whole Application */
+:root {
+  --main-color: #3778c2;
+  --main-color-light: #6fa7e1;
+  --main-color-dark: #1c4d8c;
+  --second-color: #5fb523;
+  --second-color-light: #8fdc67;
+  --second-color-dark: #3d7d00;
+  --text-color: #434b54;
+  --text-color-light: #808a8f;
+  --text-color-dark: #2e3437;
+  --background-color: #f8f9fa;
+  --background-color-light: #fff;
+  --background-color-dark: #c2c2c2;
+}
+
+/* Set the Font Family and Size, * means all elements and body is the root element of the page */
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  overflow-x: hidden; /* This will hide the horizontal scrollbar */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--main-color); /* Main color for the navigation bar */
+}
+
+#budget-app {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#navbarSupportedContent {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#signin-up-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+#signin-up-menu li {
+  margin-right: 15px;
+}
+
+#signin-up-menu a {
+  text-decoration: none;
+  color: white; /* Text color for sign-in/sign-up links */
+  font-weight: bold;
+}
+
+.btn-warning {
+  background-color: var(--second-color); /* Background color for the sign-out button */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+/* Flash Messages */
+.alert-success {
+  background-color: var(--second-color); /* Background color for success messages */
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.alert-danger {
+  background-color: var(--second-color-dark); /* Background color for error messages */
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Container for the Splash Screen containing the Logo and the Sign-in/Sign-up Buttons */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+/* Customize this button as per design requirements */
+
+.button-login {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--main-color); /* Background color for the sign-in/sign-up buttons */
+  border: none;
+  padding: 20px 40px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* make Everything in the center in categories container */
+
+.categories-container,
+.transactions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make the Category Cards Style and Layout and Responsiveness */
+
+.category-card {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.transaction-card {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.add-category-button,
+.add-transaction-button {
+  background-color: var(--second-color); /* Background color for the add category button */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#category {
+  padding: 20px 15px !important;
+  position: fixed;
+  bottom: 0;
+}
+
+/* Make Everything in the center in container-login */
+
+.container-login,
+.container-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.remember-me-field {
+  margin-top: 10px;
+}
+
+.remember-me-checkbox {
+  background-color: var(--second-color); /* Background color for the checkbox */
+  color: white; /* Text color for the checkbox */
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+.remember-me-label {
+  color: var(--text-color); /* Text color for the label */
+  margin-left: 5px; /* Adjust margin as needed */
+}
+
+/* Center the Login Button Horizontally */
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.links-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

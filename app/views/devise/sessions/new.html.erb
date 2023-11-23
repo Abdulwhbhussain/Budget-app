@@ -1,0 +1,24 @@
+<div class="container-login">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", style: "color: #808a8f; margin: 10px 0; width: 100%; max-width: 400px; height: 40px;" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", style: "color: #808a8f; margin: 10px 0; width: 100%; max-width: 400px; height: 40px;" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+  <div class="field remember-me-field">
+  <%= f.check_box :remember_me, class: "remember-me-checkbox" %>
+  <%= f.label :remember_me, class: "remember-me-label" %>
+</div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: "add-category-button" %>
+  </div>
+<% end %>
+<div class="links-center"><%= render "devise/shared/links" %></div>
+</div>
