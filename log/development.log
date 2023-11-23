@@ -4652,3 +4652,281 @@ Processing by CategoriesController#show as HTML
 Completed 200 OK in 204ms (Views: 181.3ms | ActiveRecord: 3.2ms | Allocations: 9208)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:22:53 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 235ms (ActiveRecord: 44.4ms | Allocations: 9994)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:23:04 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (4.9ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23], ["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (3.9ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (2.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (2.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.9ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.8ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 131.0ms | Allocations: 18984)
+  Rendered layout layouts/application.html.erb (Duration: 226.3ms | Allocations: 22664)
+Completed 200 OK in 424ms (Views: 362.7ms | ActiveRecord: 21.6ms | Allocations: 28438)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 22:23:10 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 81ms (ActiveRecord: 0.8ms | Allocations: 2571)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:23:11 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 1382)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.0ms | Allocations: 2274)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:23:14 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 1258)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 1955)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-22 22:23:23 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.1ms | Allocations: 772)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 2086)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 3418)
+Completed 200 OK in 74ms (Views: 70.4ms | ActiveRecord: 0.0ms | Allocations: 4746)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-22 22:23:32 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"bajwa@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "bajwa@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 412ms (ActiveRecord: 2.0ms | Allocations: 2970)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:23:33 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 11ms (ActiveRecord: 0.4ms | Allocations: 1257)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:23:33 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (0.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4, $5)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23], ["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (0.7ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (1.0ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 53.0ms | Allocations: 7847)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | Allocations: 9138)
+Completed 200 OK in 85ms (Views: 64.9ms | ActiveRecord: 5.3ms | Allocations: 11178)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-22 22:24:02 +0500
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 1927)
+Completed 200 OK in 50ms (Views: 34.5ms | ActiveRecord: 0.4ms | Allocations: 4090)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-22 22:24:18 +0500
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"name"=>"Bussiness", "icon"=>"https://source.unsplash.com/random"}, "commit"=>"Create Category"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mCategory Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Bussiness"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mCategory Create (8.0ms)[0m  [1m[32mINSERT INTO "categories" ("author_id", "name", "icon", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Bussiness"], ["icon", "https://source.unsplash.com/random"], ["created_at", "2023-11-22 17:24:18.497943"], ["updated_at", "2023-11-22 17:24:18.497943"]]
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 51ms (ActiveRecord: 11.9ms | Allocations: 6726)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:24:18 +0500
+Processing by SplashController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/splash_controller.rb:5:in `index'
+Redirected to http://127.0.0.1:3000/categories
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 1236)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-22 22:24:18 +0500
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."author_id" = $1 LIMIT $2[0m  [["author_id", 10], ["LIMIT", 1]]
+  ↳ app/views/categories/index.html.erb:6
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mHABTM_Deals Load (1.6ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" IN ($1, $2, $3, $4, $5, $6)[0m  [["category_id", 19], ["category_id", 21], ["category_id", 22], ["category_id", 23], ["category_id", 24], ["category_id", 25]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Load (0.8ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8)[0m  [["id", 31], ["id", 35], ["id", 37], ["id", 38], ["id", 32], ["id", 33], ["id", 34], ["id", 39]]
+  ↳ app/views/categories/index.html.erb:9
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 19]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 21]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 22]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 23]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/index.html.erb:15
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 25]]
+  ↳ app/views/categories/index.html.erb:15
+  Rendered categories/index.html.erb within layouts/application (Duration: 57.4ms | Allocations: 8739)
+  Rendered layout layouts/application.html.erb (Duration: 71.0ms | Allocations: 10022)
+Completed 200 OK in 90ms (Views: 71.5ms | ActiveRecord: 6.2ms | Allocations: 12039)
+
+
+Started GET "/categories/25" for 127.0.0.1 at 2023-11-22 22:24:33 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.3ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 25]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.4ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 25]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 957)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | Allocations: 2236)
+Completed 200 OK in 55ms (Views: 25.8ms | ActiveRecord: 1.7ms | Allocations: 6282)
+
+
+Started GET "/categories/25/deals/new" for 127.0.0.1 at 2023-11-22 22:24:38 +0500
+Processing by DealsController#new as HTML
+  Parameters: {"category_id"=>"25"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering deals/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1[0m  [["author_id", 10]]
+  ↳ app/views/deals/new.html.erb:16
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 25], ["LIMIT", 1]]
+  ↳ app/views/deals/new.html.erb:22
+  Rendered deals/new.html.erb within layouts/application (Duration: 27.9ms | Allocations: 5275)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 6555)
+Completed 200 OK in 66ms (Views: 51.4ms | ActiveRecord: 1.9ms | Allocations: 8752)
+
+
+Started POST "/categories/25/deals" for 127.0.0.1 at 2023-11-22 22:24:58 +0500
+Processing by DealsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "deal"=>{"name"=>"Inventory", "amount"=>"500", "category_ids"=>["24", "25"]}, "commit"=>"Add Deal", "category_id"=>"25"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" IN ($1, $2)[0m  [["id", 24], ["id", 25]]
+  ↳ app/controllers/deals_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mCategory Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Investments"], ["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mCategory Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["name", "Bussiness"], ["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mDeal Create (3.5ms)[0m  [1m[32mINSERT INTO "deals" ("author_id", "name", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["name", "Inventory"], ["amount", 500], ["created_at", "2023-11-22 17:24:58.965441"], ["updated_at", "2023-11-22 17:24:58.965441"]]
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mDeal::HABTM_Categories Create (5.4ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 40], ["category_id", 24], ["created_at", "2023-11-22 17:24:58.974705"], ["updated_at", "2023-11-22 17:24:58.974705"]]
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mDeal::HABTM_Categories Create (0.9ms)[0m  [1m[32mINSERT INTO "deals_categories" ("deal_id", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["deal_id", 40], ["category_id", 25], ["created_at", "2023-11-22 17:24:58.985956"], ["updated_at", "2023-11-22 17:24:58.985956"]]
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/deals_controller.rb:14:in `create'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/deals_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/categories/24
+Completed 302 Found in 137ms (ActiveRecord: 58.1ms | Allocations: 13296)
+
+
+Started GET "/categories/24" for 127.0.0.1 at 2023-11-22 22:24:59 +0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."author_id" = $1 AND "categories"."id" = $2 LIMIT $3[0m  [["author_id", 10], ["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mHABTM_Deals Load (0.4ms)[0m  [1m[34mSELECT "deals_categories".* FROM "deals_categories" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  [1m[36mDeal Load (0.5ms)[0m  [1m[34mSELECT "deals".* FROM "deals" WHERE "deals"."id" = $1[0m  [["id", 40]]
+  ↳ app/controllers/categories_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mDeal Sum (0.5ms)[0m  [1m[34mSELECT SUM("deals"."amount") FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1[0m  [["category_id", 24]]
+  ↳ app/views/categories/show.html.erb:14
+  [1m[36mDeal Load (1.3ms)[0m  [1m[34mSELECT "deals".* FROM "deals" INNER JOIN "deals_categories" ON "deals"."id" = "deals_categories"."deal_id" WHERE "deals_categories"."category_id" = $1 ORDER BY "deals"."created_at" DESC[0m  [["category_id", 24]]
+  ↳ app/views/categories/show.html.erb:21
+  Rendered categories/show.html.erb within layouts/application (Duration: 17.2ms | Allocations: 1153)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 2432)
+Completed 200 OK in 76ms (Views: 36.4ms | ActiveRecord: 3.4ms | Allocations: 7248)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-11-22 22:25:16 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 21ms (ActiveRecord: 0.3ms | Allocations: 2081)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-22 22:25:17 +0500
+Processing by SplashController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering splash/index.html.erb within layouts/application
+  Rendered splash/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | Allocations: 1265)
+Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 0.0ms | Allocations: 1959)
+
+

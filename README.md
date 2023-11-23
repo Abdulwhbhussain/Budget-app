@@ -100,6 +100,9 @@ The Ruby on Rails capstone project (remember what they are?) is about building a
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://google.com)
+> Note: The Live Demo link is not available. As, I have checkout all free hosting services and they are not working with Ruby on Rails. Kindly, Make sure to run the project locally. Ex Code Reviewer said that if you're not able to host the project then you can submit it without the live demo link.
+
+
 - [Presentation Video](https://www.loom.com/share/1a278f3b6b854132a83c7f2e8b9c303c?sid=ed37e9d1-ed0f-4a65-aae7-c4c9819d9318)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
