@@ -197,3 +197,25 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.add-category-button {
+  background-color: var(--second-color); /* Background color for the add category button */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Make Everything in the center in container-login */
+
+.container-login,
+.container-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
